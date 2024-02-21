@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* body{
+            background-image: linear-gradient(green,blue);
+            background-color: aqua;
+            background-repeat:no-repeat;
+        } */
+
+      button{
+            background-color: aqua;
+            border-radius:50px;
+        } 
+
+        table,tr,td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+ 
+        <h1 style="color:blue;background-color: aqua;background-image:linear-gradient(red,yellow);font-style: italic;font-variant: small-caps;">Todo Dashboard</h1>
+<p> 
+    <button>  <a href="/add_task" target="_blank">Add Task</a></button> &nbsp
+    <button>  <a href="/authapp/logout" target="_blank">Logout</a></button>
+    
+</p>
+ 
+   {% comment %}
+  {{a}} <br>
+  Hi,{{User}} <br>
+
+  {% if a > b %}
+        <p>In if block</p>
+        {{a}} is greater 
+  {% else %}
+         <p>In else block</p>
+        {{b}} is greater 
+  {% endif %}
+
+  <hr />
+  <p>loop control instruction</p>
+  {% for x in l %}
+  {{x}}<br>
+  {% endfor %}
+   {% endcomment %}
+   
+{% comment %}
+   {{data}}
+ 
+  {% for x in data %}
+  {{x}}<br>
+   ID:{{x.id}}<br>
+   Title:{{x.title}}<br>
+   Details:{{x.detail}}<br>
+   Deu Date:{{x.due_dt}}<br> <hr>
+  {% endfor %}
+  {% endcomment %}
+
+<table  align="center" >
+    <tr>
+        <th>Sr.No</th>
+        <th>Task Title</th>
+        <th>Task Details</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for x in data %}
+    
+
+    <tr>
+        <!-- <td>{{x.id}}</td>
+        <td>{{x.title}}</td>
+        <td>{{x.detail}}</td>
+        <td>{{x.due_dt}}</td> -->
+        {% if x.is_completed == 0 %}
+        <td>{{x.id}}</td>
+        <td>{{x.title}}</td>
+        <td>{{x.detail}}</td>
+        <td>{{x.due_dt}}</td>
+        <td style="color:red">Pending</td>
+        <td><a href="./complete/{{x.id}}"><button>Mark As Completed</button></a></td>
+        <td><a href="./edit/{{x.id}}"<button>Edit</button></a></td>
+        <td><a href="./delete/{{x.id}}"<button>Delete</button></a></td>
+        </tr>
+        {% else %}
+        <td >{{x.id}}</td>
+        <td style="text-decoration: line-through;">{{x.title}}</td>
+        <td style="text-decoration: line-through;">{{x.detail}}</td>
+        <td style="text-decoration: line-through;">{{x.due_dt}}</td>
+        <td style="color:green">completed</td>
+        <td><a href="./complete/{{x.id}}"><button>Mark As Completed</button></a></td>
+        <td><a href="./edit/{{x.id}}"<button>Edit</button></a></td>
+        <td><a href="./delete/{{x.id}}"<button>Delete</button></a></td>
+        {% endif %}
+        <!-- <td><a href="./complete/{{x.id}}"><button>Mark As Completed</button></a></td>
+        <td><a href="./edit/{{x.id}}"<button>Edit</button></a></td>
+        <td><a href="./delete/{{x.id}}"<button>Delete</button></a></td>
+    </tr> -->
+
+    {% endfor %}
+</table>
+
+</body>
+</html>

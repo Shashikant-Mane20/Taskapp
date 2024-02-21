@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo|Login</title>
+    <style>
+        td{
+            padding:10px;
+            
+        }
+        input{
+            padding:6px;
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">User Login</h2>
+    <form method="POST" action="">
+       
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td>Enter Username:</td>
+                <td><input type="email" name="uname" id=""></td>
+            </tr>
+            <tr>
+                <td>Enter Password:</td>
+                <td><input type="password" name="upass" id=""></td>
+            </tr>
+
+            <tr>
+                <td><input type="submit" value="Login"></td>
+                <td><a href="./register">New User? Register</a></td>
+            </tr>
+
+            {% if errmsg %}
+            <tr>
+               <td style="color:red">{{errmsg}}</td> 
+            </tr>
+            {% endif %}
+        </table>
+    </form>
+    
+</body>
+</html>

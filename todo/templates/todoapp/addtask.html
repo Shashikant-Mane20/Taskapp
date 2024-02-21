@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo|Add Task</title>
+    <style>
+    /* h1{
+            color:black;background-color: aqua;background-image:linear-gradient(red,yellow);
+            font-variant:small-caps;
+        }
+        form{
+            background-image: linear-gradient(green,blue);
+            border:solid 2px;
+            background-repeat:no-repeat;
+
+        }
+        body{
+            background-color:aquamarine;
+        }
+ */
+
+
+    </style>
+</head>
+<body>
+    <h1 align="center" style="font-style: italic;">Add Task Details...</h1>
+    <form action="" method="POST" >
+        {% csrf_token %} 
+        <table align="center">
+            <tr>
+                <td>
+                    <label for="input1">Title:</label>
+                </td>
+                <td>
+                    <input type:"text" name="title" id="input1" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="input2">Enter Task Details:</label>
+                </td>
+                <td>
+                    <textarea name="det" id="input2" cols="25" rows="6" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="input3">Due Date:</label>
+                </td>
+                <td>
+                    <input type="date" name="duedt" id="input3" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+            
+                        <input type="submit" value="Add Task" name="subbtn">
+           
+                   
+                </td>
+                
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
